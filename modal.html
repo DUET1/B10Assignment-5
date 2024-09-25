@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal with Close Button</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+<!-- Trigger button -->
+<button id="openModalBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+  Open Modal
+</button>
+
+<!-- The Modal -->
+<div id="myModal" class="fixed inset-0  flex items-center justify-center hidden">
+  <div class="bg-white p-6 rounded-lg shadow-lg relative w-1/3 flex flex-col items-center">
+    <!-- Close Button -->
+    <button class="absolute top-2 right-4 text-2xl font-bold text-gray-600 hover:text-gray-800 close"></button>
+    
+    <!-- Modal Content -->
+    <h2 class="text-5xl font-bold mb-4 text-black">Congrates!</h2>
+    <img src="./assets/coin.png" alt="">
+    <p class="p-5">You are Donated for HumanKind.</p>
+    <h1>Successfully</h1>
+    
+    <!-- Optional footer -->
+    <div class="mt-6 flex justify-end">
+      <button id="closeModalBtn" class="bg-gray-200 text-black px-4 py-2 rounded hover:bg-lime-400">Close Confirmation</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Get modal, open, and close elements
+  const modal = document.getElementById("myModal");
+  const openBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.getElementsByClassName("close")[0];
+  const closeModalBtn = document.getElementById("closeModalBtn");
+
+  // Open modal on button click
+  openBtn.onclick = function() {
+    modal.classList.remove("hidden");
+  }
+
+  // Close modal on "X" button click
+  closeBtn.onclick = function() {
+    modal.classList.add("hidden");
+  }
+
+  // Close modal on "Close" button click inside the modal
+  closeModalBtn.onclick = function() {
+    modal.classList.add("hidden");
+  }
+
+  // Close modal if clicking outside modal content
+  //window.onclick = function(event) {
+    //if (event.target == modal) {
+     // modal.classList.add("hidden");
+    //}
+  //}
+</script>
+
+</body>
+</html>
